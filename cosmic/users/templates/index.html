@@ -1,0 +1,22 @@
+<form action="{% url 'users:register' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <br><label>Select Account type</label><br>
+    <input type="radio" name="is_developer" value="1" id="dev" required>
+    <label for="dev">Developer</label>
+    <input type="radio" name="is_developer" value="0" id="con">
+    <label for="contrib">Contributer</label>
+    <input type="submit" value="Register">
+</form>
+
+<form action="{% url 'users:login' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    {% if err %}
+        {{ err }}
+    {% endif %}
+    <input type="submit" value="Login">
+</form>
