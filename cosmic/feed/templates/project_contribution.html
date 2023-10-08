@@ -1,49 +1,32 @@
-<<<<<<< HEAD
-{% if not projs%}
-    <h1>No results</h1>
-{% else %}
-    {% for proj in projs %}
-        <ul>
-            <li>
-                <form action="{% url 'feed:remove_proj' %}" method="post">
-                    <input type="hidden" value="{{ proj.id }}" name="pid">
-                    {% csrf_token %}
-                    {{ proj.proj_name }}<br>
-                    {{ proj.proj_desc }}<br>
-                    {{ proj.requirements }}<br>
-                    {{ proj.proj_links }}             
-                    <input type="submit" value="Remove">
-                </form>
-            </li>
-            
-        </ul>
-    {% endfor %}
-{% endif %}
-<a href="{% url 'feed:dashboard' %}">Go Back</a>
-=======
 {% load static %}
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title >Your Project List</title>
-    {% load static %}
+    <title>Your Project List</title>
+
     <link rel="stylesheet" href="{% static 'project_contribution.css' %}">
 </head>
 <body>
-    <h1     font-family: 'Montserrat Alternates', sans-serif;
-    >Your Project List</h1>
-    <ul>
+    {% if not projs %}
+        <h1>No results</h1>
+    {% else %}
+    <uL>
         {% for proj in projs %}
         <li>
-            <h2>{{ proj.proj_name }}</h2>
-            <p>{{ proj.proj_desc }}</p>
-            <p class="requirements">{{ proj.requirements }}</p>
-            <a class="proj_links" href="{{ proj.proj_links }}">{{ proj.proj_links }}</a>
+            <form action="{% url 'feed:remove_proj' %}" method="post">
+                <input type="hidden" value="{{ proj.id }}" name="pid">
+                {% csrf_token %}
+                {{ proj.proj_name }}<br>
+                {{ proj.proj_desc }}<br>
+                {{ proj.requirements }}<br>
+                {{ proj.proj_links }}             
+                <input type="submit" value="Remove">
+            </form>
         </li>
         {% endfor %}
+    {% endif %}
     </ul>
     <a href="{% url 'feed:dashboard' %}">Go Back</a>
 </body>
 </html>
->>>>>>> b1a9240fb7b5fc930c4a02d0316e8a21959deb77

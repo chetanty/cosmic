@@ -37,13 +37,13 @@
         {% if user.is_developer %}
             <div style="position: absolute; top: 350px; left: 55%; transform: translate(-50%, 50%);width: 100%;">
                 <a style="color: black; padding: 100px; " class="btn" href="{% url 'feed:create_project' %}">Create Project</a>
-                <a style="color: black; padding: 100px; " class="btn"" href="{% url 'feed:project_list' %}">Your Projects</a>
+                <a style="color: black; padding: 100px; " class="btn" href="{% url 'feed:project_list' %}">Your Projects</a>
             </div>
 
         {% else %}
-            <div style="position: absolute; top: 350px; left:49%; transform: translate(-50%, 50%);">
-                <a style="color: black; padding: 80px; " class="btn" href="{% url 'feed:project_contribution' %}">Project Contribution</a>
-                <a href="{% url 'feed:skills' %}">Add/Update Skills</a>
+            <div style="display:flex;">
+                <a style="color: black; padding: 80px;" class="btn" href="{% url 'feed:project_contribution' %}">Project Contribution</a>
+                <a style="color: black; padding: 80px;" class="btn" href="{% url 'feed:skills' %}">Add/Update Skills</a>
             </div>
         {% endif %}
     </main>

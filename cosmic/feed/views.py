@@ -45,9 +45,14 @@ def project_contribution_view(request):
     return render(request, "project_contribution.html", context)
 
 def skills_view(request):
-    context = {
-        "user_skills": request.user.skillset_set.all()[0]
-    }
+    try:
+        context = {
+            "user_skills": request.user.skillset_set.all()[0]
+        }
+    except Exception as e:
+        context = {
+            "user_skills": ""
+        }
     return render(request, "skills.html", context)
 
 def update_skills_view(request):
@@ -61,3 +66,6 @@ def remove_proj_view(request):
         saved_proj = SavedProject.objects.filter(saved_proj_id=int(request.POST["pid"]), saved_id=request.user)
         saved_proj.delete()
         return redirect("feed:dashboard")
+    
+def update_project_view(request):
+    pass

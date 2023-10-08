@@ -1,8 +1,24 @@
 {% if data %}
     <ul>
     {% for datum in data %}
-        <li>{{ datum.proj_name }}<br>
-        {{ datum.proj_desc }}</li>
+        <li>
+            <form action="{% url 'feed:update_project' %}" method="post">
+                {{ datum.proj_name }}<br>
+                {{ datum.proj_desc }}<br>
+                {{ datum.requirements }}<br>
+                {{ datum.proj_links }}
+                
+                {% csrf_token %}
+                <label for="name">Project Name</label>
+                <input type="text" name="name" value="{{ datum.proj_name }}" required>
+                <label for="description">Description</label>
+                <textarea name="description" required>{{ datum.proj_desc }}</textarea>
+                <label for="requirements">Requirements</label>                    <textarea name="requirements" required>{{ datum.requirements }}</textarea>
+                <label for="project_links">Links</label>
+                <textarea name="project_links" required>{{ datum.proj_links }}</textarea>
+                <input type="submit" value="Edit" class="button">
+            </form>
+        </li>
     {% endfor %}
     </ul>
 {% else %}
