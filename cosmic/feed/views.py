@@ -33,4 +33,24 @@ def project_list_view(request):
     return render(request, "project_list.html", context)
 
 def project_contribution_view(request):
-    return render(request, "project_contributions.html")
+    proj_contributes = request.user.savedproject_set.all()
+    projs = []
+
+    for proj in proj_contributes:
+        projs.extend(Project.objects.filter(pk=proj.saved_proj_id))
+    
+    context = {
+        "projs": projs
+    }
+    return render(request, "project_contribution.html", context)
+
+def skills_view(request):
+    context = {
+        "user_skills": request.user.skillset_set.all()[0]
+    }
+    return render(request, "skills.html", context)
+
+def update_skills_view(request):
+    if request.method == "POST":
+        request.user.skillset_set.update_or_create(defaults={"skill_text":request.POST["skills"]})
+        return redirect("feed:skills")

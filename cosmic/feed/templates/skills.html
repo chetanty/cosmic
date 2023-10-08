@@ -1,0 +1,8 @@
+<form action="{% url 'feed:update_skills' %}" method="post">
+    {% csrf_token %}
+    <p>Current skills: {{ user_skills.skill_text }}</p><br>
+    <label for="skills">Your skills</label>
+    <textarea name="skills"></textarea>
+    <input type="submit" value="Add/Update">
+</form>
+<a href="{% url 'feed:dashboard' %}">Go Back</a>

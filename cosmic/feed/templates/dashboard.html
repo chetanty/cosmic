@@ -11,7 +11,13 @@
         <h1 style="font-size: 50px; top: 30px; left: 10px; position: absolute;">Welcome back, {{ user.username }} !!!</h1>
         <a class="logout-btn" style="font-size: 20px; top: 30px; right: 10px; position: absolute;" href="{% url 'users:logout' %}">Logout</a>
         <div class="container">
-            <h1>Looking for projects?</h1> <br/>
+
+            {% if user.is_developer %}
+                <h1>Looking to find project collaborators?</h1> <br/>
+            {% else %}
+                <h1>Looking for projects?</h1> <br/>
+            {% endif %}
+
             <div class="search-box">
             <div class="search-icon"><i class="fa fa-search search-icon"></i></div>
             {% csrf_token %}
@@ -25,14 +31,17 @@
             </svg>
             <div class="go-icon"><i class="fa fa-arrow-right"></i></div>
         </div>
+
         {% if user.is_developer %}
             <div style="position: absolute; top: 350px; left: 55%; transform: translate(-50%, 50%);width: 100%;">
                 <a style="color: black; padding: 100px; " class="btn" href="{% url 'feed:create_project' %}">Create Project</a>
                 <a style="color: black; padding: 100px; " class="btn"" href="{% url 'feed:project_list' %}">Your Projects</a>
             </div>
+
         {% else %}
             <div style="position: absolute; top: 350px; left:49%; transform: translate(-50%, 50%);">
                 <a style="color: black; padding: 80px; " class="btn" href="{% url 'feed:project_contribution' %}">Project Contribution</a>
+                <a href="{% url 'feed:skills' %}">Add/Update Skills</a>
             </div>
         {% endif %}
     </main>

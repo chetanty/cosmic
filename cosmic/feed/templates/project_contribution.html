@@ -1,0 +1,11 @@
+{% for proj in projs %}
+    <ul>
+        <li>
+            {{ proj.proj_name }}<br>
+            {{ proj.proj_desc }}<br>
+            {{ proj.requirements }}<br>
+            {{ proj.proj_links }}
+        </li>
+    </ul>
+{% endfor %}
+<a href="{% url 'feed:dashboard' %}">Go Back</a>
