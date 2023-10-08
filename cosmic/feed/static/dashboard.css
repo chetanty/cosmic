@@ -1,11 +1,13 @@
 html, body {
   font-family: 'Montserrat Alternates', sans-serif;
-  color: #FFFFFF;
+  color: #000000;
   width: 100%;
   max-width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
+
 }
 
 *, *:before, *:after {
@@ -34,9 +36,9 @@ main {
   left: 0;
   margin: 0 auto;
   padding: 0 5%; /* Use relative units for padding */
-  width: 90%; /* Use relative units for width */
+  width: 100%; /* Use relative units for width */
   height: 100%;
-  background-image: url("./space_image.jpg");
+  background-color: #f9f9f9;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -64,7 +66,7 @@ h2 {
 
   .logout-btn{
     
-    background-color: #3a1040;
+    background-color: #cec2c2;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -72,8 +74,8 @@ h2 {
 }
 
 .logout-btn:hover {
-    background-color: #fafafa;
-    color: #110f0f;
+    background-color: #494848;
+    color: #000000;
     cursor: pointer;
 }
   
@@ -149,7 +151,7 @@ h2 {
   }
   .border {
     fill: none;
-    stroke: #FFFFFF;
+    stroke: #030303;
     stroke-width: 5;
     stroke-miterlimit: 10;
   }
@@ -180,7 +182,7 @@ h2 {
     border: none;
     background: rgba(255,255,255,0);
     padding: 0 68px 0 68px;
-    color: #FFFFFF;
+    color: #050505;
     font-size: 1.32em;
     font-weight: 400;
     letter-spacing: -0.015em;
@@ -197,16 +199,16 @@ h2 {
     height: 200px;
   }
   .btn:hover {
-    background-color: #fafafa;
-    color: #110f0f;
+    background-color: #d5d3d3;
+    color: #fefefe;
     cursor: pointer;
   }
-  #search::-webkit-input-placeholder {color: #FFFFFF;}
-  #search::-moz-placeholder {color: #FFFFFF;}
-  #search:-ms-input-placeholder {color: #FFFFFF;}
-  #search:-moz-placeholder {color: #FFFFFF;}
-  #search::-moz-selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
-  #search::selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+  #search::-webkit-input-placeholder {color: #000000;}
+  #search::-moz-placeholder {color: #080808;}
+  #search:-ms-input-placeholder {color: #101010;}
+  #search:-moz-placeholder {color: #010101;}
+  #search::-moz-selection {color: #010101; background: rgba(0,0,0,0.25);}
+  #search::selection {color: #060606; background: rgba(0,0,0,0.25);}
   
   
 

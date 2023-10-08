@@ -1,11 +1,25 @@
-{% for proj in projs %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title >Your Project List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'project_contribution.css' %}">
+</head>
+<body>
+    <h1     font-family: 'Montserrat Alternates', sans-serif;
+    >Your Project List</h1>
     <ul>
+        {% for proj in projs %}
         <li>
-            {{ proj.proj_name }}<br>
-            {{ proj.proj_desc }}<br>
-            {{ proj.requirements }}<br>
-            {{ proj.proj_links }}
+            <h2>{{ proj.proj_name }}</h2>
+            <p>{{ proj.proj_desc }}</p>
+            <p class="requirements">{{ proj.requirements }}</p>
+            <a class="proj_links" href="{{ proj.proj_links }}">{{ proj.proj_links }}</a>
         </li>
+        {% endfor %}
     </ul>
-{% endfor %}
-<a href="{% url 'feed:dashboard' %}">Go Back</a>
+    <a href="{% url 'feed:dashboard' %}">Go Back</a>
+</body>
+</html>
