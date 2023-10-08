@@ -18,14 +18,18 @@
         </div>
         <input class="submit-su" type="submit" value="Register">
     </form>
+
     <hr class="hr-text" data-content="OR">
     <h2 style="text-align: center; color: aliceblue;">Sign in</h2>
+
     <form class="si" action="{% url 'users:login' %}" method="post">
         {% csrf_token %}
+        <p style="color: rgb(255, 255, 255); margin: 10px; font-size: 16px;">Username</p>
         <input class="user-si" type="text" name="username" placeholder="Username" required>
+        <p style="color: rgb(255, 255, 255); margin: 10px; font-size: 16px;">Password</p>
         <input class="pass-si" type="password" name="password" placeholder="Password" required>
         {% if err %}
-            {{ err }}
+            <p style="color: wheat; margin: 10px; font-size: 16px; text-align: center; font-weight: 600; " class="error-message">{{ err }}</p>
         {% endif %}
         <input class="submit-si" type="submit" value="Login">
     </form>

@@ -175,10 +175,28 @@ html, body {
     letter-spacing: -0.015em;
     outline: none;
   }
+  .btn{
+    background-color: #9aa4a9;
+    margin : 30px;
+    padding: 300px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    height: 200px;
+  }
+  .btn:hover {
+    background-color: #fafafa;
+    color: #110f0f;
+    cursor: pointer;
+  }
   #search::-webkit-input-placeholder {color: #FFFFFF;}
   #search::-moz-placeholder {color: #FFFFFF;}
   #search:-ms-input-placeholder {color: #FFFFFF;}
   #search:-moz-placeholder {color: #FFFFFF;}
   #search::-moz-selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
   #search::selection {color: #FFFFFF; background: rgba(0,0,0,0.25);}
+  
+  
+
   

@@ -7,36 +7,34 @@
     <link rel="stylesheet" href="{% static 'dashboard.css' %}">
 </head>
 <body>
-    <main></main>
-            <h1 style="font-size: 50px; top: 30px; left: 10px; position: absolute;">Welcome back, {{ user.username }} !!!</h1>
-                <a class="logout-btn" style="font-size: 20px; top: 30px; right: 10px; position: absolute;" href="{% url 'users:logout' %}">Logout</a>
-            <div class="container">
-                <h1>Looking for projects?</h1> <br/>
-                <div class="search-box">
-                    <div class="search-icon"><i class="fa fa-search search-icon"></i></div>
-                    {% csrf_token %}
-                    <form action="{% url 'search:search' %}" method="get" class="search-form">
-                        <input type="text" placeholder="Search" id="search" name="search" autocomplete="off">
-                    </form>
-                    <svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
-                    xml:space="preserve">
+    <main>
+        <h1 style="font-size: 50px; top: 30px; left: 10px; position: absolute;">Welcome back, {{ user.username }} !!!</h1>
+        <a class="logout-btn" style="font-size: 20px; top: 30px; right: 10px; position: absolute;" href="{% url 'users:logout' %}">Logout</a>
+        <div class="container">
+            <h1>Looking for projects?</h1> <br/>
+            <div class="search-box">
+            <div class="search-icon"><i class="fa fa-search search-icon"></i></div>
+            {% csrf_token %}
+            <form action="{% url 'search:search' %}" method="get" class="search-form">
+                <input type="text" placeholder="Search" id="search" name="search" autocomplete="off">
+            </form>
+            <svg class="search-border" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" viewBox="0 0 671 111" style="enable-background:new 0 0 671 111;"
+                xml:space="preserve">
                 <path class="border" d="M335.5,108.5h-280c-29.3,0-53-23.7-53-53v0c0-29.3,23.7-53,53-53h280"/>
                 <path class="border" d="M335.5,108.5h280c29.3,0,53-23.7,53-53v0c0-29.3-23.7-53-53-53h-280"/>
-                </svg>
-                    <div class="go-icon"><i class="fa fa-arrow-right"></i></div>
-                </div>
-
-            </div>
+            </svg>
+            <div class="go-icon"><i class="fa fa-arrow-right"></i></div>
+        </div>
         {% if user.is_developer %}
-            <div>
-            <a href="{% url 'feed:create_project' %}">Create Project</a>
-            <a href="{% url 'feed:project_list' %}">Your Projects</a>
+            <div style="position: absolute; top: 350px; left: 55%; transform: translate(-50%, 50%);width: 100%;">
+                <a style="color: black; padding: 100px; " class="btn" href="{% url 'feed:create_project' %}">Create Project</a>
+                <a style="color: black; padding: 100px; " class="btn"" href="{% url 'feed:project_list' %}">Your Projects</a>
             </div>
         {% else %}
-            <div>
-                <a href="{% url 'feed:project_contribution' %}"></a>
+            <div style="position: absolute; top: 350px; left:49%; transform: translate(-50%, 50%);">
+                <a style="color: black; padding: 80px; " class="btn" href="{% url 'feed:project_contribution' %}">Project Contribution</a>
             </div>
         {% endif %}
-        </main>
+    </main>
 </body>
 </html>
