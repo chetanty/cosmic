@@ -1,7 +1,8 @@
 body {
-    background-color: lightblue;
+    background-color: #261c1c;
     font-family: verdana;
   }
+
 .su{
     margin: 0 auto;
     display: table;
@@ -49,6 +50,8 @@ body {
     cursor: pointer;
 }
 .rad label {
+    background-color: rgb(182, 191, 188) ;
+    color: #000000;
     display: inline-block;
     border-radius: 7px;
     width: 200px;
@@ -63,8 +66,12 @@ body {
   
 .rad input[type="radio"]:checked + label {
     color: white;
-    background-color: rgb(10, 179, 120);
+    background-color: #4CAF50;
   }
+
+.rad:hover {
+  cursor: pointer;
+}
 .user-si{
     margin: 10px;
     padding: 10px;

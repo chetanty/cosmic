@@ -1,16 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
 <body>
-    <h2 style="text-align: center;">Sign up</h2>
+    <h2 style="text-align: center; color: aliceblue">Sign up</h2>
     <form class="su" action="{% url 'users:register' %}" method="post">
         {% csrf_token %}
         <input class="user-su" type="text" name="username" placeholder="Username" required>
         <input class="pass-su" type="password" name="password" placeholder="Password" required>
         <input class="email-su" type="email" name="email" placeholder="Email" required>
-        <h4 style="text-align: center;">Select Account type</h4>
-        <div style="text-align: center; margin-bottom: 30px;" class="rad">
+        <h4 style="text-align: center; color: aliceblue">Select Account type</h4>
+        <div style="text-align: center; margin-bottom: 30px; color: aliceblue" class="rad">
             <input type="radio" name="is_developer" value="1" id="dev" required>
                 <label for="dev">Organizations</label>
             <input type="radio" name="is_developer" value="0" id="con">
@@ -19,7 +19,7 @@
         <input class="submit-su" type="submit" value="Register">
     </form>
     <hr class="hr-text" data-content="OR">
-    <h2 style="text-align: center;">Sign in</h2>
+    <h2 style="text-align: center; color: aliceblue;">Sign in</h2>
     <form class="si" action="{% url 'users:login' %}" method="post">
         {% csrf_token %}
         <input class="user-si" type="text" name="username" placeholder="Username" required>
