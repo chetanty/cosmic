@@ -1,7 +1,76 @@
-<form action="{% url 'feed:update_skills' %}" method="post">
-    {% csrf_token %}
-    <label for="skills">Your skills</label>
-    <textarea name="skills">{{ user_skills.skill_text }}</textarea>
-    <input type="submit" value="Add/Update">
-</form>
-<a href="{% url 'feed:dashboard' %}">Go Back</a>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+  </head>
+    <style>
+        body {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #88B04B;
+            font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+            font-weight: 900;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #dce1e7;
+            font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+            font-size:20px;
+            margin: 0;
+        }
+        a, input {
+            text-decoration: none;
+            font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+            background-color: #88B04B; 
+            font-size:14px; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        i {
+            color: #9ABC66;
+            font-size: 100px;
+            line-height: 200px;
+            margin-left:-15px;
+        }
+        .card {
+            text-align: center;
+            background: rgb(88, 80, 80);
+            padding: 60px;
+            border-radius: 4px;
+            box-shadow: 0 2px 3px #4d5054;
+            display: inline-block;
+            margin: 0 auto;
+        }
+        .box {
+            width: 500px;
+            height: 200px;
+            padding: 20px;
+            border: 2px solid #88B04B;
+            border-width: 2px;
+            border-radius: 4px;
+            background-color: #e3e3e3;
+            resize: none;
+        }
+    </style>
+<body>
+<div class="card">
+
+    <form action="{% url 'feed:update_skills' %}" method="post">
+        {% csrf_token %}
+        <label for="skills"><h2 style="color: #88B04B;">Your skills</h2></label>
+        <textarea class="box" name="skills">{{ user_skills.skill_text }}</textarea>
+        <br />
+        <input type="submit" value="Add/Update">
+    </form>
+    
+    <a href="{% url 'feed:dashboard' %}">Go Back</a>
+</div>
+</body>
+</html>
