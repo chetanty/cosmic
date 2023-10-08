@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Project
+from .models import Project, SavedProject
 
 # Create your views here.
 def dashboard_view(request):
@@ -54,3 +54,10 @@ def update_skills_view(request):
     if request.method == "POST":
         request.user.skillset_set.update_or_create(defaults={"skill_text":request.POST["skills"]})
         return redirect("feed:skills")
+
+def remove_proj_view(request):
+    if request.method == "POST":
+        # request.user.savedproject_set.delete(saved_proj_id=int(request.POST["pid"]))
+        saved_proj = SavedProject.objects.filter(saved_proj_id=int(request.POST["pid"]), saved_id=request.user)
+        saved_proj.delete()
+        return redirect("feed:dashboard")

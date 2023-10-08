@@ -1,11 +1,21 @@
-{% for proj in projs %}
-    <ul>
-        <li>
-            {{ proj.proj_name }}<br>
-            {{ proj.proj_desc }}<br>
-            {{ proj.requirements }}<br>
-            {{ proj.proj_links }}
-        </li>
-    </ul>
-{% endfor %}
+{% if not projs%}
+    <h1>No results</h1>
+{% else %}
+    {% for proj in projs %}
+        <ul>
+            <li>
+                <form action="{% url 'feed:remove_proj' %}" method="post">
+                    <input type="hidden" value="{{ proj.id }}" name="pid">
+                    {% csrf_token %}
+                    {{ proj.proj_name }}<br>
+                    {{ proj.proj_desc }}<br>
+                    {{ proj.requirements }}<br>
+                    {{ proj.proj_links }}             
+                    <input type="submit" value="Remove">
+                </form>
+            </li>
+            
+        </ul>
+    {% endfor %}
+{% endif %}
 <a href="{% url 'feed:dashboard' %}">Go Back</a>
