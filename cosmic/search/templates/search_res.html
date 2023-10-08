@@ -1,5 +1,16 @@
 {% if projects %}
-    {{ projects }}
+    <ul>
+        {% for project in projects %}
+            <li>
+            <form action="{% url 'search:save_project' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="pid" value="{{ project.id }}">
+                {{ project }}
+                <input type="submit" value="Save">
+            </form>
+            </li>
+        {% endfor %}
+    </ul>
 {% else %}
     {{ usernames }}
 {% endif %}
