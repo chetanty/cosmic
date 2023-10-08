@@ -1,0 +1,19 @@
+{% csrf_token %}
+<h1>Welcom back {{ user.username }}</h1>
+<a href="{% url 'users:logout' %}">Logout</a>
+
+<form action="{% url 'search:search' %}" method="get">
+    <input type="text" name="search">
+    <input type="submit" value="search">
+</form>
+
+{% if user.is_developer %}
+    <div>
+    <a href="{% url 'feed:create_project' %}">Create Project</a>
+    <a href="{% url 'feed:project_list' %}">Your Projects</a>
+    </div>
+{% else %}
+    <div>
+        <a href="{% url 'feed:project_contribution' %}"></a>
+    </div>
+{% endif %}

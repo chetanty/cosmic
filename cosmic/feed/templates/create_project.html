@@ -1,0 +1,13 @@
+<form action="{% url 'feed:project_post' %}" method="post">
+    {% csrf_token %}
+    <label for="name">Project Name</label>
+    <input type="text" name="name" required>
+    <label for="description">Description</label>
+    <textarea name="description" required></textarea>
+    <label for="requirements">Requirements</label>
+    <textarea name="requirements" required></textarea>
+    <label for="project_links">Links</label>
+    <textarea name="project_links" required></textarea>
+    <input type="submit" value="Submit">
+</form>
+<a href="{% url 'feed:dashboard' %}">Go Back</a>

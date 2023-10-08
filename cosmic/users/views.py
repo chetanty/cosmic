@@ -9,10 +9,11 @@ def index_view(request):
 
 def register_view(request):
     if request.method == "POST":
-        if request.POST["is_developer"]:
+        if request.POST["is_developer"] == "1":
             dev = 1
         else:
             dev = 0
+            
         CustomUser.objects.create_user(username=request.POST["username"], password=request.POST["password"], email=request.POST["email"], is_developer=dev)
 
         return render(request, "register_success.html")
@@ -24,20 +25,14 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect("users:dashboard")
+            return redirect("feed:dashboard")
         else:
             err = "Invalid Username/Password"
-        err = None
-        return render(request, "index.html", {"err":err})
-
-def dashboard_view(request):
-    if request.user.is_authenticated:
-        context = {
-            "user": request.user
-        }
-        return render(request, "dashboard.html", context)
+        
     else:
-        return redirect("users:index")
+        err = None
+
+    return render(request, "index.html", {"err":err})
 
 def logout_view(request):
     logout(request)

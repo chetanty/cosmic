@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path("search/", include("search.urls", namespace="search")),
+    path("feed/", include("feed.urls", namespace="feed")),
     path("join_us/", include("users.urls", namespace="users")),
     path('admin/', admin.site.urls),
 ]
