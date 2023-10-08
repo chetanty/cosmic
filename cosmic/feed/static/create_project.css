@@ -1,0 +1,89 @@
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgba(249, 249, 249, 0.8); /* Adjust the alpha value (0.8) for transparency */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-content {
+    text-align: left; /* Align the text content within the form to the left */
+}
+
+
+main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    padding: 0 26px;
+    width: 100%;
+    height: 100%;
+    background-image: url("./space_image3.jpg");
+    background-size: cover;
+    background-position: center center; /* Center the background */
+    background-repeat: no-repeat;
+  }
+
+.button {
+    text-align: center; /* Align the text content within the form to the left */
+
+    display: inline-block;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    margin: 0 10px;
+    width: 150px; /* Set a fixed width for both buttons */
+    font-size: 16px; /* Set the font size for both buttons */
+}
+
+.button:hover {
+    background-color: #0056b3;
+    text-decoration: underline;
+}
+
+
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="text"],
+textarea {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input[type="submit"], a {
+    display: inline-block; /* Make the buttons display side by side */
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none; /* Remove underline for the "Go Back" link */
+    margin: 0 10px; /* Add space between buttons */
+}
+
+input[type="submit"]:hover, a:hover {
+    background-color: #0056b3;
+    text-decoration: underline; /* Add underline on hover for the "Go Back" link */
+}

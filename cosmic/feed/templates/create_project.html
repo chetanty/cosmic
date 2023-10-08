@@ -1,14 +1,27 @@
+{% load static %}
 
-<form action="{% url 'feed:project_post' %}" method="post" style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9;">
-    {% csrf_token %}
-    <label for="name" style="display: block; margin-top: 10px;">Project Name</label>
-    <input type="text" name="name" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;">
-    <label for="description" style="display: block; margin-top: 10px;">Description</label>
-    <textarea name="description" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;"></textarea>
-    <label for="requirements" style="display: block; margin-top: 10px;">Requirements</label>
-    <textarea name="requirements" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;"></textarea>
-    <label for="project_links" style="display: block; margin-top: 10px;">Links</label>
-    <textarea name="project_links" required style="width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px;"></textarea>
-    <input type="submit" value="Submit" style="background-color: #007BFF; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-</form>
-<a href="{% url 'feed:dashboard' %}" style="display: block; text-align: center; margin-top: 10px; text-decoration: none; color: #007BFF;">Go Back</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'create_project.css' %}">
+</head>
+<body>
+    <main>
+    <form action="{% url 'feed:project_post' %}" method="post">
+        {% csrf_token %}
+        <label for="name">Project Name</label>
+        <input type="text" name="name" required>
+        <label for="description">Description</label>
+        <textarea name="description" required></textarea>
+        <label for="requirements">Requirements</label>
+        <textarea name="requirements" required></textarea>
+        <label for="project_links">Links</label>
+        <textarea name="project_links" required></textarea>
+        <input type="submit" value="Submit" class="button">
+        <a href="{% url 'feed:dashboard' %}" class="button">Go Back</a>
+        
+    </form>
+</main>
+
+</body>
+</html>
