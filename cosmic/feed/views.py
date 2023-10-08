@@ -68,4 +68,11 @@ def remove_proj_view(request):
         return redirect("feed:dashboard")
     
 def update_project_view(request):
-    pass
+    if request.method == "POST":
+        Project.objects.filter(id=request.POST["pid"], proj_id=request.user).update(
+            proj_name=request.POST["name"],
+            proj_desc=request.POST["description"],
+            requirements=request.POST["requirements"],
+            proj_links=request.POST["project_links"],
+        )
+    return redirect("feed:project_list")

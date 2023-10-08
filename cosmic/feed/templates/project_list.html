@@ -3,12 +3,8 @@
     {% for datum in data %}
         <li>
             <form action="{% url 'feed:update_project' %}" method="post">
-                {{ datum.proj_name }}<br>
-                {{ datum.proj_desc }}<br>
-                {{ datum.requirements }}<br>
-                {{ datum.proj_links }}
-                
                 {% csrf_token %}
+                <input type="hidden" value="{{ datum.id }}" name="pid">
                 <label for="name">Project Name</label>
                 <input type="text" name="name" value="{{ datum.proj_name }}" required>
                 <label for="description">Description</label>
