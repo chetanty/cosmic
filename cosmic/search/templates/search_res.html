@@ -1,30 +1,87 @@
-{% if projects %}
-    <ul>
-        {% for project in projects %}
-            <li>
-            <form action="{% url 'search:save_project' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="pid" value="{{ project.id }}">
-                {{ project.proj_name }}<br>
-                {{ project.proj_desc }}<br>
-                {{ project.requirements }}<br>
-                {{ project.proj_links }}
-                <input type="submit" value="Save">
-            </form>
-            </li>
-        {% endfor %}
-    </ul>
-{% elif usernames or usernames_by_skills %}
-    <ul>
-        {% for user in usernames %}
-            <li>{{ user.username }}</li>
-        {% endfor %}
-        {% for user in usernames_by_skills %}
-            <li>{{ user.skill_id }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <h1>No results</h1>
-{% endif %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+            font-family: 'Montserrat Alternates', sans-serif;
+        }
+        li {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: 'Montserrat Alternates', sans-serif;
+            position: relative; /* Add this line to set the position for relative positioning */
+        }
+        form {
+            display: inline;
+            font-family: 'Montserrat Alternates', sans-serif;
+        }
+        h1 {
+            color: #FF5733;
+            font-family: 'Montserrat Alternates', sans-serif;
+        }
+        /* Style for the "Save" button */
+        .save-button {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            font-size: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Montserrat Alternates', sans-serif;
+            position: absolute; /* Position the button absolutely within the list item */
+            top: 10px; /* Adjust the top position as needed */
+            right: 10px; /* Adjust the right position as needed */
+        }
+        /* Style for the "Go Back" link */
+        .go-back {
+            background-color: #007BFF;
+            color: #ffffff;
+            padding: 10px 50px;
+            border: none;
+            font-size: 17px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            font-family: 'Montserrat Alternates', sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    {% if projects %}
+        <ul>
+            {% for project in projects %}
+                <li>
+                    <form action="{% url 'search:save_project' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="pid" value="{{ project.id }}">
+                        <strong>{{ project.proj_name }}</strong><br>
+                        {{ project.proj_desc }}<br>
+                        {{ project.requirements }}<br>
+                        {{ project.proj_links }}
+                        <input type="submit" class="save-button" value="Save">
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% elif usernames or usernames_by_skills %}
+        <ul>
+            {% for user in usernames %}
+                <li>{{ user.username }}</li>
+            {% endfor %}
+            {% for user in usernames_by_skills %}
+                <li>{{ user.skill_id }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h1>No results</h1>
+    {% endif %}
 
-<a href="{% url 'feed:dashboard' %}">Go Back</a>
+    <a href="{% url 'feed:dashboard' %}" class="go-back">Go Back</a>
+</body>
+</html>
