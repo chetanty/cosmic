@@ -11,11 +11,10 @@ def search_view(request):
 
         if request.user.is_developer:
             usernames = CustomUser.objects.filter(Q(username__icontains = search_param))
-
             usernames_by_skills = SkillSet.objects.filter(skill_text__icontains = search_param)
             context = {
                     "usernames": usernames,
-                    "usernames_by_skills": usernames_by_skills
+                    "usernames_by_skills": usernames_by_skills,
                 }
             return render(request, "search_res.html", context)
     

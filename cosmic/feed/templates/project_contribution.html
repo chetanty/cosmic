@@ -20,7 +20,8 @@
                 {{ proj.proj_name }}<br>
                 {{ proj.proj_desc }}<br>
                 {{ proj.requirements }}<br>
-                {{ proj.proj_links }}             
+                {{ proj.proj_links }}        
+                <a href="mailto:{{ proj.proj_id.email }}">Send email to the Author</a>     
                 <input type="submit" value="Remove">
             </form>
         </li>

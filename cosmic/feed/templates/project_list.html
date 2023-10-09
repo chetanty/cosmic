@@ -14,6 +14,17 @@
                 <textarea name="project_links" required>{{ datum.proj_links }}</textarea>
                 <input type="submit" value="Edit" class="button">
             </form>
+            <form action="{% url 'feed:delete_project' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ datum.id }}" name="pid">
+                <input type="submit" value="Delete" class="button">
+            </form>
+
+            <form action="{% url 'chat:discussion' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ datum.id }}" name="pid">
+                <input type="submit" value="discussion">
+            </form>
         </li>
     {% endfor %}
     </ul>

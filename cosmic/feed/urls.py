@@ -12,5 +12,6 @@ urlpatterns = [
     path("skills", views.skills_view, name="skills"),
     path("update_skills", views.update_skills_view, name="update_skills"),
     path("remove_proj", views.remove_proj_view, name="remove_proj"),
-    path("update_project", views.update_project_view, name="update_project")
+    path("update_project", views.update_project_view, name="update_project"),
+    path("delete_project", views.delete_project_view, name="delete_project")
 ]
