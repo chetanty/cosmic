@@ -19,14 +19,12 @@
                 <h2>{{ proj.proj_name }}</h2> <!-- Bold the project name -->
                 {{ proj.proj_desc }}<br>
                 {{ proj.requirements }}<br>
-<<<<<<< HEAD
                 {{ proj.proj_links }}        
                 <a href="mailto:{{ proj.proj_id.email }}">Send email to the Author</a>     
                 <input type="submit" value="Remove">
-=======
+
                 <a class="proj_links" href="{{ proj.proj_links }}">{{ proj.proj_links }}</a> <!-- Apply the style for project links -->
                 <button class="remove-button" >Remove</button> <!-- Apply the style for the button -->
->>>>>>> 858f77a9dabba48d74c51edddd3057c4e7cbb38b
             </form>
         </li>
         {% endfor %}
