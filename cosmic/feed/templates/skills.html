@@ -1,7 +1,65 @@
-<form action="{% url 'feed:update_skills' %}" method="post">
-    {% csrf_token %}
-    <label for="skills">Your skills</label>
-    <textarea name="skills">{{ user_skills.skill_text }}</textarea>
-    <input type="submit" value="Add/Update">
-</form>
-<a href="{% url 'feed:dashboard' %}">Go Back</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Style the form container */
+        .form-container {
+            margin: 0 auto; /* Center the form horizontally */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Center vertically within the viewport */
+            text-align: center; /* Center text within the container */
+            font-family: sans-serif; /* Set the font to sans-serif */
+            background-color: #f9f9f9; /* Set the background color */
+        }
+
+        /* Style the label */
+        label {
+            display: block; /* Make the label a block element */
+            margin-bottom: 10px;
+            font-size: 20px; /* Set the font size */
+            font-family: sans-serif; /* Set the font to sans-serif */
+        }
+
+        /* Style the textarea */
+        textarea {
+            width: 100%;
+            font-family: sans-serif; /* Set the font to sans-serif */
+            padding: 20px;
+            font-size: 20px; /* Set the font size */
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Style both the submit button and Go Back link */
+        input[type="submit"],
+        a {
+            background-color: #007BFF; /* Set the background color to #007BFF */
+            color: #ffffff; /* Set the text color to white */
+            padding: 10px 20px;
+            border: none;
+            font-size: 17px; /* Set the font size */
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block; /* Make them inline block elements */
+            text-decoration: none;
+            font-family: sans-serif; /* Set the font to sans-serif */
+            margin-right: 10px; /* Add space between the button and the link */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form action="{% url 'feed:update_skills' %}" method="post">
+            {% csrf_token %}
+            <label for "skills">Your skills</label>
+            <textarea name="skills">{{ user_skills.skill_text }}</textarea>
+            <input type="submit" value="Add/Update">
+            <a href="{% url 'feed:dashboard' %}">Go Back</a>
+        </form>
+    </div>
+</body>
+</html>
