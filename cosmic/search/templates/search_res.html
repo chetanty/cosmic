@@ -10,7 +10,7 @@
         li {
             margin-bottom: 20px;
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 40px;
             font-family: 'Montserrat Alternates', sans-serif;
             position: relative; /* Add this line to set the position for relative positioning */
         }
@@ -36,6 +36,18 @@
             top: 10px; /* Adjust the top position as needed */
             right: 10px; /* Adjust the right position as needed */
         }
+        /* Style for the "Send email" button */
+        .send-email-button {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            font-size: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Montserrat Alternates', sans-serif;
+            margin-left: 20px; /* Add margin to separate it from the project name */
+        }
         /* Style for the "Go Back" link */
         .go-back {
             background-color: #007BFF;
@@ -53,35 +65,44 @@
     </style>
 </head>
 <body>
-    {% if projects %}
-        <ul>
-            {% for project in projects %}
-                <li>
-                    <form action="{% url 'search:save_project' %}" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="pid" value="{{ project.id }}">
-                        <strong>{{ project.proj_name }}</strong><br>
-                        {{ project.proj_desc }}<br>
-                        {{ project.requirements }}<br>
-                        {{ project.proj_links }}
-                        <input type="submit" class="save-button" value="Save">
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-    {% elif usernames or usernames_by_skills %}
-        <ul>
-            {% for user in usernames %}
-                <li>{{ user.username }}</li>
-            {% endfor %}
-            {% for user in usernames_by_skills %}
-                <li>{{ user.skill_id }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <h1>No results</h1>
-    {% endif %}
+{% if projects %}
+    <ul>
+        {% for project in projects %}
+            <li>
+            <form action="{% url 'search:save_project' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="pid" value="{{ project.id }}">
+                <div>
+                    {{ project.proj_name }}
+                    <a href="mailto:{{ project.proj_id.email }}" class="send-email-button">Send email</a>
+                </div>
+                {{ project.proj_desc }}<br>
+                {{ project.requirements }}<br>
+                {{ project.proj_links }}
+                <input type="submit" value="Save" class="save-button">
+            </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% elif usernames or usernames_by_skills %}
+    <ul>
+        {% for user in usernames %}
+            <li>
+                {{ user.username }}
+                <a href="mailto:{{ user.email }}" class="send-email-button">Send email</a>
+            </li>
+        {% endfor %}
+        {% for user in usernames_by_skills %}
+            <li>
+                {{ user.skill_id }}
+                <a href="mailto:{{ user.email }}" class="send-email-button">Send email</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h1>No results</h1>
+{% endif %}
 
-    <a href="{% url 'feed:dashboard' %}" class="go-back">Go Back</a>
+<a href="{% url 'feed:dashboard' %}" class="go-back">Go Back</a>
 </body>
 </html>

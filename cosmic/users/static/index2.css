@@ -3,7 +3,9 @@ body {
   font-family: verdana;
   color:#000000 ;
 }
-
+h1 {
+  text-align: center;
+}
 .su{
   margin: 0 auto;
   display: table;
@@ -108,6 +110,6 @@ cursor: pointer;
   height: 500px;
   margin-left: 130px;
   display: flex; align-items: center;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-bottom: 50px;
 }

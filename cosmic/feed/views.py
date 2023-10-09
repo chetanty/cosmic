@@ -49,7 +49,7 @@ def skills_view(request):
         context = {
             "user_skills": request.user.skillset_set.all()[0]
         }
-    except Exception as e:
+    except Exception:
         context = {
             "user_skills": ""
         }
@@ -62,7 +62,6 @@ def update_skills_view(request):
 
 def remove_proj_view(request):
     if request.method == "POST":
-        # request.user.savedproject_set.delete(saved_proj_id=int(request.POST["pid"]))
         saved_proj = SavedProject.objects.filter(saved_proj_id=int(request.POST["pid"]), saved_id=request.user)
         saved_proj.delete()
         return redirect("feed:dashboard")
@@ -75,4 +74,9 @@ def update_project_view(request):
             requirements=request.POST["requirements"],
             proj_links=request.POST["project_links"],
         )
+    return redirect("feed:project_list")
+
+def delete_project_view(request):
+    if request.method == "POST":
+        Project.objects.filter(id=request.POST["pid"], proj_id=request.user).delete()
     return redirect("feed:project_list")

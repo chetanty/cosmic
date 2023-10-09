@@ -55,7 +55,7 @@
     <div class="form-container">
         <form action="{% url 'feed:update_skills' %}" method="post">
             {% csrf_token %}
-            <label for "skills">Your skills</label>
+            <label for="skills">Your skills</label>
             <textarea name="skills">{{ user_skills.skill_text }}</textarea>
             <input type="submit" value="Add/Update">
             <a href="{% url 'feed:dashboard' %}">Go Back</a>
