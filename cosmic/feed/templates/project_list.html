@@ -1,23 +1,89 @@
-{% if data %}
-    <ul>
-    {% for datum in data %}
-        <li>
-            <form action="{% url 'feed:update_project' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" value="{{ datum.id }}" name="pid">
-                <label for="name">Project Name</label>
-                <input type="text" name="name" value="{{ datum.proj_name }}" required>
-                <label for="description">Description</label>
-                <textarea name="description" required>{{ datum.proj_desc }}</textarea>
-                <label for="requirements">Requirements</label>                    <textarea name="requirements" required>{{ datum.requirements }}</textarea>
-                <label for="project_links">Links</label>
-                <textarea name="project_links" required>{{ datum.proj_links }}</textarea>
-                <input type="submit" value="Edit" class="button">
-            </form>
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <h1>You have no projects</h1>
-{% endif %}
-<a href="{% url 'feed:dashboard' %}">Go Back</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        form {
+            border: 2px solid #ccc;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-left: 2px;
+
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .x {
+            background-color: #007BFF;
+            color: #ffffff;
+            padding: 10px 50px;
+            border: none;
+            font-size: 17px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            font-family: sans-serif;
+            text-align: center; /* Center the text horizontally */
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .center-text {
+            text-align: center; /* Center the text horizontally */
+        }
+    </style>
+</head>
+<body>
+    {% if data %}
+        <ul>
+        {% for datum in data %}
+            <li>
+                <form action="{% url 'feed:update_project' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{ datum.id }}" name="pid">
+                    <label for="name">Project Name</label>
+                    <input type="text" name="name" value="{{ datum.proj_name }}" required>
+                    <label for="description">Description</label>
+                    <textarea name="description" required>{{ datum.proj_desc }}</textarea>
+                    <label for="requirements">Requirements</label>
+                    <textarea name="requirements" required>{{ datum.requirements }}</textarea>
+                    <label for="project_links">Links</label>
+                    <textarea name="project_links" required>{{ datum.proj_links }}</textarea>
+                    <input type="submit" value="Edit" class="button">
+                </form>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h1>You have no projects</h1>
+    {% endif %}
+    <div class="center-text"> <!-- Create a container for centering text -->
+        <a href="{% url 'feed:dashboard' %}" class="x">Go Back</a>
+    </div>
+</body>
+</html>

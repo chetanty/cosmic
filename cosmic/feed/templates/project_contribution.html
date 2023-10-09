@@ -4,8 +4,7 @@
 <html>
 <head>
     <title>Your Project List</title>
-
-    <link rel="stylesheet" href="{% static 'project_contribution.css' %}">
+    <link rel="stylesheet" href="{% static 'project_contribution2.css' %}">
 </head>
 <body>
     {% if not projs %}
@@ -17,16 +16,16 @@
             <form action="{% url 'feed:remove_proj' %}" method="post">
                 <input type="hidden" value="{{ proj.id }}" name="pid">
                 {% csrf_token %}
-                {{ proj.proj_name }}<br>
+                <h2>{{ proj.proj_name }}</h2> <!-- Bold the project name -->
                 {{ proj.proj_desc }}<br>
                 {{ proj.requirements }}<br>
-                {{ proj.proj_links }}             
-                <input type="submit" value="Remove">
+                <a class="proj_links" href="{{ proj.proj_links }}">{{ proj.proj_links }}</a> <!-- Apply the style for project links -->
+                <button class="remove-button" >Remove</button> <!-- Apply the style for the button -->
             </form>
         </li>
         {% endfor %}
     {% endif %}
     </ul>
-    <a href="{% url 'feed:dashboard' %}">Go Back</a>
+    <a href="{% url 'feed:dashboard' %}" class="x">Go Back</a>
 </body>
 </html>

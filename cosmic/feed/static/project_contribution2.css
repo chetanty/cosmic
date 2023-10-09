@@ -1,0 +1,103 @@
+/* Apply styles to the unordered list */
+ul {
+    font-family: 'Montserrat Alternates', sans-serif;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 29px;
+
+}
+
+/* Style for list items */
+li {
+    font-family: 'Montserrat Alternates', sans-serif;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+    background-color: #f9f9f9;
+    position: relative; /* Add this line */
+}
+
+
+/* Style for project name */
+li h2 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for project description */
+li p {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Style for project requirements */
+li .requirements {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Style for project links */
+li .proj_links {
+    font-size: 20px;
+    color: #0074cc;
+    text-decoration: none;
+}
+
+/* Style for the "Go Back" link */
+a {
+    font-family: 'Montserrat Alternates', sans-serif;
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    color: #0074cc;
+    text-decoration: none;
+}
+.x{    background-color: #007BFF; /* Set the background color to #007BFF */
+    color: #ffffff; /* Set the text color to white */
+    padding: 10px 20px;
+    border: none;
+    font-size: 17px; /* Set the font size */
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block; /* Make them inline block elements */
+    text-decoration: none;
+    font-family: sans-serif; /* Set the font to sans-serif */
+    margin-right: 10px; /* Add space between the button and the link */
+    text-align: left;
+    left: 10px; /* Align to the right with a 10px margin */
+    transform: translateY(50%); /* Adjust for vertical centering */
+
+}
+/* Style for the "Remove" button */
+.remove-button {
+    background-color: #007BFF;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    font-size: 17px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-align: center;
+    position: absolute;
+    top: 50%; /* Align vertically to the center */
+    right: 10px; /* Align to the right with a 10px margin */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+}
+
+/* Center the "Remove" button vertically and horizontally */
+
+
+body {
+    background-color: #f9f9f9;
+}
